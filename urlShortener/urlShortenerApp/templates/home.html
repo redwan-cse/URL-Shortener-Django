@@ -1,0 +1,20 @@
+<!-- FILEPATH: /E:/PrimeTech/URL-Shortener-Django/urlShortener/urlShortenerApp/templates/urlShortenerApp/home.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>URL Shortener</title>
+</head>
+<body>
+    <h1>URL Shortener</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <label for="url">Enter URL:</label>
+        <input type="text" name="url" id="url">
+        <button type="submit">Shorten URL</button>
+    </form>
+    {% if shortened_url %}
+        <p>Shortened URL: <a href="{{ shortened_url }}">{{ shortened_url }}</a></p>
+    {% endif %}
+</body>
+</html>
