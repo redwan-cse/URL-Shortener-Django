@@ -1,5 +1,3 @@
-<!-- FILEPATH: /E:/PrimeTech/URL-Shortener-Django/urlShortener/urlShortenerApp/templates/urlShortenerApp/home.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +13,19 @@
     </form>
     {% if shortened_url %}
         <p>Shortened URL: <a href="{{ shortened_url }}">{{ shortened_url }}</a></p>
+    {% endif %}
+    
+    <!-- Display the 10 most recent URLs -->
+    {% if recent_urls %}
+        <h2>Recent 10 URLs</h2>
+        <ul>
+            {% for url in recent_urls %}
+                <li>
+                    Original URL: <a href="{{ url.original_url }}">{{ url.original_url }}</a><br>
+                    Shortened URL: <a href="{{ url.get_absolute_url }}">{{ url.get_absolute_url }}</a>
+                </li>
+            {% endfor %}
+        </ul>
     {% endif %}
 </body>
 </html>

@@ -19,10 +19,14 @@ def home(request):
             # Save the original and short URLs
             shortened_url = ShortenedURL(original_url=original_url, short_url=short_url)
             shortened_url.save()
-            return render(request, 'home.html', {'shortened_url': shortened_url.short_url})
-    else:
-        form = URLShortenerForm()
-    return render(request, 'home.html', {'form': form})
+
+    # Get the 10 most recent URLs, including both original and shortened URLs
+    recent_urls = ShortenedURL.objects.all().order_by('-id')[:10]
+
+    form = URLShortenerForm()  # Create a new form for the template
+
+    # Pass both the form and recent_urls to the template context
+    return render(request, 'home.html', {'form': form, 'recent_urls': recent_urls})
 
 def redirect_original_url(request, short_url):
     try:

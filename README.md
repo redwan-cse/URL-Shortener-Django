@@ -11,7 +11,7 @@ To install this project, follow these steps:
 
 ## Usage
 
-To use the URL shortener, simply enter a long URL into the input field on the homepage and click the "Shorten" button. The shortened URL will be displayed on the next page.
+To use the URL shortener, simply enter a long URL into the input field on the homepage and click the "Shorten" button. The shortened URL will be displayed on the page.
 
 ## Contributing
 
